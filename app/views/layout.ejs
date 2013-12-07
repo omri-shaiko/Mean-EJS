@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<% include includes/head.ejs %>
+<body>
+<div data-ng-include="'views/header.html'" data-role="navigation" class="navbar navbar-inverse navbar-fixed-top"></div>
+<section class="content">
+    <section class="container">
+
+        <% var info = req.flash("info"); %>
+        <% if(info.length > 0){ %>
+            <div class="alert alert-info"><%= info %></div>
+        <% } %>
+
+        <% var success = req.flash("success"); %>
+        <% if(success.length > 0){ %>
+            <div class="alert alert-success"><%= success %></div>
+        <% } %>
+
+        <% var error = req.flash("error"); %>
+        <% if(error.length > 0){ %>
+            <div class="alert alert-error"><%= error %></div>
+        <% } %>
+
+        <%- body %>
+    </section>
+</section>
+<% include includes/foot.ejs %>
+</body>
+</html>
